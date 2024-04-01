@@ -17,12 +17,15 @@ function Example2() {
       <h3>Using Arrays with useState Hook</h3>
       <div>
         <ul>
-          {list?.map((item) => (
+          {list?.map((item,i) => (
+            <div key={i}>
             <li>{item}</li>
+            </div>
           ))}
         </ul>
         <button onClick={handleAdd}>Add fruit</button>
       </div>
+      <hr />
     </>
   );
 }
