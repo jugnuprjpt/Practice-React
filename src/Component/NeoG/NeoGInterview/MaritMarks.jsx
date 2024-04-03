@@ -1,29 +1,42 @@
-import React, { useState } from 'react'
-import marit from './maritData'
+import React, { useState } from "react";
+import marit from "./maritData";
 
 function MaritMarks() {
-    const [marks,setMarks] = useState(marit)
-    console.log(marks,"dasd")
+  const [marks, setMarks] = useState(marit);
+  console.log(marks, "dasd");
   return (
     <>
-     <table>
-  <tr>
-    <th colspan="2">Name</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-   
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-   
-  </tr>
-</table>
+      <div style={{ display: "flex" }}>
+        {marks.map((item) => (
+          <table>
+            <tr>
+              <th colspan="2">{item?.name}</th>
+            </tr>
+            <tr>
+              <td>Unit Test</td>
+              <td>Pre Marks</td>
+            </tr>
+            {
+              Object.entries(item.unitTestMarks[0]).map(([subject,marks])=>(
+                <>
+                
+                 <tr >
+              {/* <td>{subject}</td> */}
+              <td>{marks}</td>
+            </tr>
+                </>
+              ))
+            }
+            
+          
+          
+          </table>
+        ))}
+      </div>
+
       <hr />
     </>
-  )
+  );
 }
 
-export default MaritMarks
+export default MaritMarks;
